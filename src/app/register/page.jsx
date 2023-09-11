@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useSignUp } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
-const register = () => {
+const Register = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -165,4 +165,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;
