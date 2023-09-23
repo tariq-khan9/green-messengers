@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { useSignUp } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import 'react-toastify/dist/ReactToastify.css'
+import {ToastContainer, toast} from 'react-toastify'
 
 const Register = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -22,20 +24,24 @@ const Register = () => {
     }
 
     try {
+      
       await signUp.create({
         first_name: firstName,
         last_name: lastName,
         email_address: email,
         password,
-      });
+      })
+      
 
       // send the email.
       await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
 
       // change the UI to our pending section.
       setPendingVerification(true);
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+          toast.error("Email already taken or Password type mismatched!", {
+                      autoClose: 2000
+                    })
     }
   };
 
@@ -161,6 +167,7 @@ const Register = () => {
           </form>
         </div>
       )}
+      <ToastContainer position='top-center' closeOnClick={true} pauseOnHover={false}/>
     </div>
   );
 };
