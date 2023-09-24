@@ -7,10 +7,17 @@ import {ToastContainer, toast} from 'react-toastify'
 
 const Register = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const [password, setPassword] = useState('');
+  const [regData, setRegData] = useState({
+    firstName:"",
+    lastName:"",
+    email:"",
+    password:"",
+    confirmPass:""    
+   })
   const [pendingVerification, setPendingVerification] = useState(false);
   const [code, setCode] = useState('');
   const router = useRouter();
@@ -22,14 +29,21 @@ const Register = () => {
     if (!isLoaded) {
       return;
     }
+    if(regData.password!==regData.confirmPass)
+    {
+      toast.error("Confirm Password didnt matched.", {
+        autoClose: 1000
+      })
+      return;
+    }
 
     try {
       
       await signUp.create({
-        first_name: firstName,
-        last_name: lastName,
-        email_address: email,
-        password,
+        first_name: regData.firstName,
+        last_name: regData.lastName,
+        email_address: regData.email,
+        password: regData.password,
       })
       
 
@@ -71,103 +85,133 @@ const Register = () => {
   };
 
   return (
-    <div className='border p-5 rounded' style={{ width: '500px' }}>
-      <h1 className='text-2xl mb-4'>Register</h1>
-      {!pendingVerification && (
-        <form onSubmit={handleSubmit} className='space-y-4 md:space-y-6'>
-          <div>
-            <label
-              htmlFor='first_name'
-              className='block mb-2 text-sm font-medium text-gray-900'
-            >
-              First Name
-            </label>
-            <input
-              type='text'
-              name='first_name'
-              id='first_name'
-              onChange={(e) => setFirstName(e.target.value)}
-              className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5'
-              required={true}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor='last_name'
-              className='block mb-2 text-sm font-medium text-gray-900'
-            >
-              Last Name
-            </label>
-            <input
-              type='text'
-              name='last_name'
-              id='last_name'
-              onChange={(e) => setLastName(e.target.value)}
-              className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5'
-              required={true}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor='email'
-              className='block mb-2 text-sm font-medium text-gray-900'
-            >
-              Email Address
-            </label>
-            <input
-              type='email'
-              name='email'
-              id='email'
-              onChange={(e) => setEmail(e.target.value)}
-              className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5'
-              placeholder='name@company.com'
-              required={true}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor='password'
-              className='block mb-2 text-sm font-medium text-gray-900'
-            >
-              Password
-            </label>
-            <input
-              type='password'
-              name='password'
-              id='password'
-              onChange={(e) => setPassword(e.target.value)}
-              className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5'
-              required={true}
-            />
-          </div>
-          <button
-            type='submit'
-            className='w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
-          >
-            Create an account
-          </button>
-        </form>
-      )}
-      {pendingVerification && (
-        <div>
-          <form className='space-y-4 md:space-y-6'>
-            <input
-              value={code}
-              className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5'
-              placeholder='Enter Verification Code...'
-              onChange={(e) => setCode(e.target.value)}
-            />
-            <button
-              type='submit'
-              onClick={onPressVerify}
-              className='w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
-            >
-              Verify Email
-            </button>
+    <div className='w-full flex flex-col items-center'>
+    <div className='w-[70%] sm:w-[60%] md:w-[500px] h-[56%] mt-4  flex flex-col items-center' >
+      <h1 className=''>Register</h1>
+        {!pendingVerification && (
+          // <form onSubmit={handleSubmit} className='space-y-4 md:space-y-6'>
+          //   <div>
+          //     <label
+          //       htmlFor='first_name'
+          //       className='block mb-2 text-sm font-medium text-gray-900'
+          //     >
+          //       First Name
+          //     </label>
+          //     <input
+          //       type='text'
+          //       name='first_name'
+          //       id='first_name'
+          //       onChange={(e) => setFirstName(e.target.value)}
+          //       className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5'
+          //       required={true}
+          //     />
+          //   </div>
+          //   <div>
+          //     <label
+          //       htmlFor='last_name'
+          //       className='block mb-2 text-sm font-medium text-gray-900'
+          //     >
+          //       Last Name
+          //     </label>
+          //     <input
+          //       type='text'
+          //       name='last_name'
+          //       id='last_name'
+          //       onChange={(e) => setLastName(e.target.value)}
+          //       className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5'
+          //       required={true}
+          //     />
+          //   </div>
+          //   <div>
+          //     <label
+          //       htmlFor='email'
+          //       className='block mb-2 text-sm font-medium text-gray-900'
+          //     >
+          //       Email Address
+          //     </label>
+          //     <input
+          //       type='email'
+          //       name='email'
+          //       id='email'
+          //       onChange={(e) => setEmail(e.target.value)}
+          //       className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5'
+          //       placeholder='name@company.com'
+          //       required={true}
+          //     />
+          //   </div>
+          //   <div>
+          //     <label
+          //       htmlFor='password'
+          //       className='block mb-2 text-sm font-medium text-gray-900'
+          //     >
+          //       Password
+          //     </label>
+          //     <input
+          //       type='password'
+          //       name='password'
+          //       id='password'
+          //       onChange={(e) => setPassword(e.target.value)}
+          //       className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5'
+          //       required={true}
+          //     />
+          //   </div>
+          //   <button
+          //     type='submit'
+          //     className='w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+          //   >
+          //     Create an account
+          //   </button>
+          // </form>
+          <form className='w-full sm:w-[60%] md:w-[500px] h-[55%]   flex flex-col items-center' id='regUserForm' onSubmit={handleSubmit} >        
+              <div className='w-[70%] min-w-[250px] mt-2'>
+                <label className='block font-myFont text-green-700 text-sm '>First Name: </label>
+                <input  name='firstName' required minLength='4' maxLength='30' type="text" value={regData.firstName} onChange={(e)=>setRegData({...regData, firstName: e.target.value})}  placeholder="  name" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
+              </div>
+
+              <div className='w-[70%] min-w-[250px] mt-2'>
+                <label className='block font-myFont text-green-700 text-sm '>Last Name: </label>
+                <input  name='lastName' required minLength='4' maxLength='30' type="text" value={regData.lastName} onChange={(e)=>setRegData({...regData, lastName: e.target.value})}  placeholder="  name" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
+              </div>
+
+              <div className='w-[70%] min-w-[250px] mt-3'>
+                <label className='block font-myFont text-green-700 text-sm '>Email: </label>
+                <input  name='email' required type="email" value={regData.email} onChange={(e)=>setRegData({...regData, email: e.target.value})} placeholder="  tariq@email" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
+              </div>
+
+              <div className='w-[70%] min-w-[250px] mt-3'>
+                <label className='block text-sm font-myFont text-green-700  '>Password: </label>
+                <input name='password'  type="text" required  title="Password should be digits (0 to 9) or alphabets (a to z)." value={regData.password} onChange={(e)=>setRegData({...regData, password: e.target.value})} placeholder="  password" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
+              </div>
+
+              <div className='w-[70%] min-w-[250px] mt-3'>
+                <label className='block font-myFont text-green-700 text-sm '>Confirm Password: </label>
+                <input type="text" name='confirmPass' value={regData.confirmPass} onChange={(e)=>setRegData({...regData, confirmPass: e.target.value})} placeholder="  confirm your password" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
+              </div>
+
+              <button type='submit' className='w-[70%] min-w-[250px] h-7 rounded-full mt-8 bg-gray-400 ring-2 ring-offset-2 ring-teal-500/80  text-white font-inter text-[15px] p-0'>Register</button>
           </form>
-        </div>
-      )}
+        )}
+        {pendingVerification && (
+          <div>
+            <form >
+              <input
+                value={code}
+                className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5'
+                placeholder='Enter Verification Code...'
+                onChange={(e) => setCode(e.target.value)}
+              />
+              <button
+                type='submit'
+                onClick={onPressVerify}
+                className='w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+              >
+                Verify Email
+              </button>
+            </form>
+          </div>
+        )}
       <ToastContainer position='top-center' closeOnClick={true} pauseOnHover={false}/>
+    </div>
     </div>
   );
 };

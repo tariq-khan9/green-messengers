@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import Header from '@/components/Header'
+import { Navbar } from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,8 +15,9 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
     <html lang="en">
-      <body className={inter.className}>
-        <Header username='tariq'/>
+      <body className='min-w-[600px] bg-gradient-radial from-lime-200 via-gray-200 to-teal-200 gradient-radial'>
+        {/* <Header username='tariq'/> */}
+        <Navbar/>
         <div>
         {children}
         </div>
