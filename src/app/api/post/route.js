@@ -1,6 +1,6 @@
-import connectMongoDB from "./../../../lib/mongodb";
+import connectMongoDB from "@/lib/mongodb";
 
-import Post from "./../../../models/post";
+import Post from "@/models/post";
 import { NextResponse } from "next/server";
 
 export async function GET(){
