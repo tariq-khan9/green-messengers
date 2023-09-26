@@ -3,10 +3,11 @@ import Link from "next/link"
 import { useState, useEffect} from "react";
 import axios from "axios";
 import Pagination from "./Pagination";
+import { BASE_URL } from "@/lib/constant";
 
 
 export default function AllPosts() {
- 
+    const baseUrl = BASE_URL
     const [posts, setPosts] = useState([])
     const [loading, setLoading]=  useState(false)
     const [currentPage, setCurrentPage] = useState(1)
@@ -18,7 +19,7 @@ export default function AllPosts() {
   
     const fetchPosts= async()=>{
       setLoading(true)
-      const res = await axios.get('http://localhost:3000/api/post')
+      const res = await axios.get(`${baseUrl}/api/post`)
       if(res.status===401){
         console.log("401 happned")
         return null
