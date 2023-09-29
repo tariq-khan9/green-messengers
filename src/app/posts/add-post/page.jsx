@@ -5,19 +5,24 @@ import React,{useState, useEffect} from 'react'
 import 'react-toastify/dist/ReactToastify.css'
 import {ToastContainer, toast} from 'react-toastify'
 import { BASE_URL } from '@/lib/constant'
-import {  clerkClient } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation'
+import {  useClerk, clerkClient } from '@clerk/nextjs';
 
 export default function AddPost() {
+  const { user } = useClerk();
+  const loggedEmail = user? user.emailAddresses[0].emailAddress : '';
+  const router = useRouter()
   const baseUrl = BASE_URL
- // const [authEmail, setAuthEmail] = useState(session?.user?.email) 
+  const [authEmail, setAuthEmail] = useState(loggedEmail) 
   const [postData, setPostData] = useState({
     title:"",
-    content:""  
+    content:""
+    
    })
 
   useEffect(()=>{
-    const user = 'fgfgfgfd'
-    //setAuthEmail(user)
+    
+    setAuthEmail(loggedEmail)
   },[postData])
   
 // reset form data after successfully creating a user
@@ -52,7 +57,7 @@ export default function AddPost() {
                     toast.success("Post Created Successfully!", {
                       autoClose: 2000
                     })
-                    
+                    router.refresh()
                     
                   } 
                   else {
