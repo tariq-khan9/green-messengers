@@ -57,17 +57,17 @@ export default function Login() {
       <form>
       
            <div className='flex flex-col  items-center w-screen h-screen'>
-              <label className='mt-8 mb-4 text-xl font-inter text-gray-500'>Login here!</label>
+              <h3 className='mt-8 mb-4 text-xl  text-teal-600'>Login here!</h3>
              
               <div className='w-[70%] sm:w-[60%] md:w-[500px] h-[56%]  flex flex-col items-center'>
               
                  <div className='w-[70%] min-w-[250px] mt-5'>
-                   <label className='block font-myFont text-green-700 text-sm '>Email: </label>
+                   <h2 className='font-semibold text-teal-600 text-sm'>Email: </h2>
                    <input typeof='email'  value={email} onChange={(e)=>setEmail(e.target.value)} name='email' type="text" placeholder="  tariq@email" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none  ' />
                  </div>
       
                  <div className='w-[70%] min-w-[250px] mt-2'>
-                   <label className='block text-sm font-myFont text-green-700  '>Password: </label>
+                   <h2 className='font-semibold text-teal-600 text-sm'>Password: </h2>
                    <input   value={password} onChange={(e)=>setPassword(e.target.value)} name='password' type="text" placeholder="  password" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none  ' />
                </div>
       

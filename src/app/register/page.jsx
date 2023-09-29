@@ -83,31 +83,31 @@ const Register = () => {
   return (
     <div className='w-full flex flex-col items-center'>
     <div className='w-[70%] sm:w-[60%] md:w-[500px] h-[56%] mt-4  flex flex-col items-center' >
-      <h1 className=''>Register</h1>
+      <h3 className='text-teal-700 text-xl mt-4'>Register</h3>
         {!pendingVerification && (
           <form className='w-full sm:w-[60%] md:w-[500px] h-[55%]   flex flex-col items-center' id='regUserForm' onSubmit={handleSubmit} >        
               <div className='w-[70%] min-w-[250px] mt-2'>
-                <label className='block font-myFont text-green-700 text-sm '>First Name: </label>
-                <input  name='firstName' required minLength='4' maxLength='30' type="text" value={regData.firstName} onChange={(e)=>setRegData({...regData, firstName: e.target.value})}  placeholder="  name" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
+                <h2 className='font-semibold text-teal-600 text-sm '>First Name: </h2>
+                <input  name='firstName' required minLength='4' maxLength='30' type="text" value={regData.firstName} onChange={(e)=>setRegData({...regData, firstName: e.target.value})}  placeholder=" first name" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
               </div>
 
               <div className='w-[70%] min-w-[250px] mt-2'>
-                <label className='block font-myFont text-green-700 text-sm '>Last Name: </label>
-                <input  name='lastName' required minLength='4' maxLength='30' type="text" value={regData.lastName} onChange={(e)=>setRegData({...regData, lastName: e.target.value})}  placeholder="  name" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
+                <h2 className='font-semibold text-teal-600 text-sm '>Last Name: </h2>
+                <input  name='lastName' required minLength='4' maxLength='30' type="text" value={regData.lastName} onChange={(e)=>setRegData({...regData, lastName: e.target.value})}  placeholder=" last name" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
               </div>
 
               <div className='w-[70%] min-w-[250px] mt-3'>
-                <label className='block font-myFont text-green-700 text-sm '>Email: </label>
+                <h2 className='font-semibold text-teal-600 text-sm '>Email: </h2>
                 <input  name='email' required type="email" value={regData.email} onChange={(e)=>setRegData({...regData, email: e.target.value})} placeholder="  tariq@email" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
               </div>
 
               <div className='w-[70%] min-w-[250px] mt-3'>
-                <label className='block text-sm font-myFont text-green-700  '>Password: </label>
+                <h2 className='font-semibold text-teal-600 text-sm '>Password: </h2>
                 <input name='password'  type="text" required  title="Password should be digits (0 to 9) or alphabets (a to z)." value={regData.password} onChange={(e)=>setRegData({...regData, password: e.target.value})} placeholder="  password" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
               </div>
 
               <div className='w-[70%] min-w-[250px] mt-3'>
-                <label className='block font-myFont text-green-700 text-sm '>Confirm Password: </label>
+                <h2 className='font-semibold text-teal-600 text-sm '>Confirm Password: </h2>
                 <input type="text" name='confirmPass' value={regData.confirmPass} onChange={(e)=>setRegData({...regData, confirmPass: e.target.value})} placeholder="  confirm your password" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none ' />
               </div>
 
