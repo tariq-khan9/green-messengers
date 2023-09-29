@@ -1,7 +1,6 @@
 import './globals.css'
 import { Inter, Roboto_Mono, Courgette} from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
-import Header from '@/components/Header'
 import { Navbar } from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })

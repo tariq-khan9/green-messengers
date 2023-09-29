@@ -111,8 +111,8 @@ export default function AllPosts() {
                     <p className='text-justify '>{post.content.substring(0,250)}...</p>
                     <button   className='text-green-700 hover:text-green-500 '> <Link href={`/posts/${post._id}`}>Read More</Link></button>
                     
-                    <h1 className='mt-6'><span className="text-green-800">Author:</span> {post.authorEmail}</h1>
-                     <h1 >Date: {post.date.substring(0,10)}</h1>
+                    <h3 className='mt-6 text-gray-600'><span className="text-green-800">Author:</span> {post.authorEmail}</h3>
+                     <h3 className="text-gray-600" ><span className="text-green-800">Date: </span>{post.date.substring(0,10)}</h3>
                 </div>
                 ) )}
               </div> 

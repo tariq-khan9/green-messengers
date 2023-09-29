@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { UserButton, auth, clerkClient, useClerk} from '@clerk/nextjs';
+import { UserButton,  useClerk} from '@clerk/nextjs';
 //import { loggedEmail } from '@/lib/context';
 
 export const Navbar =  () => {
