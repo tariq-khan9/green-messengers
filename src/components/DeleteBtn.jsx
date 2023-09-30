@@ -4,16 +4,15 @@ import {HiOutlineTrash} from "react-icons/hi"
 import 'react-toastify/dist/ReactToastify.css'
 import {ToastContainer, toast} from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { BASE_URL } from '@/lib/constant'
 
 
 const DeleteBtn = ({id}) => {
-  const baseUrl = BASE_URL
+ 
  const router = useRouter()
  const deletePost = async() => {
    const confirmed = confirm("Are you sure to delete?");
    if(confirmed){
-   const res =  await fetch(`${baseUrl}/api/post?id=${id}`, {
+   const res =  await fetch(`https://green-messengers.vercel.app/api/post?id=${id}`, {
         method: "DELETE",
     });
 

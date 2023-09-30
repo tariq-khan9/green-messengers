@@ -40,7 +40,7 @@ export default function AddPost() {
         if(title  && content )
           {
             try{   
-                  const res = await fetch(`${baseUrl}/api/post`, {
+                  const res = await fetch('https://green-messengers.vercel.app/api/post', {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',
