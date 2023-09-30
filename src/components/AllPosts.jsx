@@ -109,7 +109,7 @@ export default function AllPosts() {
                     <h1 className='mb-6 text-xl flex justify-center '>{post.title}</h1>
                     
                     <p className='text-justify '>{post.content.substring(0,250)}...</p>
-                    <button   className='text-green-700 hover:text-green-500 '> <Link href={`/posts/${post._id}`}>Read More</Link></button>
+                    <button   className='text-green-700 font-semibold hover:text-green-600 '> <Link href={`/posts/${post._id}`}>Read More</Link></button>
                     
                     <h3 className='mt-6 text-gray-600'><span className="text-green-800">Author:</span> {post.authorEmail}</h3>
                      <h3 className="text-gray-600" ><span className="text-green-800">Date: </span>{post.date.substring(0,10)}</h3>

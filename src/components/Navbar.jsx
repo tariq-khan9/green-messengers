@@ -31,7 +31,7 @@ export const Navbar =  () => {
                           <Link href={`/${loggedEmail}`}><h2>My Posts</h2></Link>
                         </button>
                         
-                      </div> : <h2 className='text-gray-500 text-lg '>Login to Add Post!</h2>}
+                      </div> : <h2 className='text-gray-500 ml-7 text-lg '>Login to add Post!</h2>}
         </div>
 
 
@@ -44,8 +44,9 @@ export const Navbar =  () => {
                   
                 </div>
                :
-               <div className='mt-4'>
-                <Link className='font-myFont  hover:text-black text-sm text-gray-500' href='/login'><h2>Sign-In</h2></Link>                 
+               <div className='mt-[10px]'>
+                {/* <Link className='font-myFont  hover:text-black text-sm text-gray-500' href='/login'><h2>Sign-In</h2></Link>   */}
+                <Link href='/login' className=''><img className='rounded-full h-10 '  src="./../img/login.png" alt="ttariq" /></Link>                
                </div>
               }                           
     </div>

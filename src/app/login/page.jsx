@@ -68,7 +68,7 @@ export default function Login() {
       
                  <div className='w-[70%] min-w-[250px] mt-2'>
                    <h2 className='font-semibold text-teal-600 text-sm'>Password: </h2>
-                   <input   value={password} onChange={(e)=>setPassword(e.target.value)} name='password' type="text" placeholder="  password" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none  ' />
+                   <input type="password"  value={password} onChange={(e)=>setPassword(e.target.value)} name='password'  placeholder="  password" className='shadow text-sm font-inter font-light  w-full h-[35px] border border-gray-200 p-[5px] rounded-sm focus:border-teal-500 focus:outline-none  ' />
                </div>
       
                
