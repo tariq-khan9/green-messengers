@@ -16,7 +16,7 @@ const MyPosts = ({posts}) => {
             <p className='text-justify'>{post.content.substring(0,250)}...</p>
             <button   className='text-amber-700 hover:text-amber-600 font-semibold'> <Link href={`/posts/${post._id}`}>Read More</Link></button>
             <div className='grid grid-cols-2 gap-12 '>
-            <h1 className='mt-6'><span className='text-amber-800'>Date:</span> {post.date.getFullYear()}-{post.date.getMonth()}-{post.date.getDate()}</h1>
+            <h1 className='mt-6'><span className='text-amber-800'>Date:</span> {post.date.getFullYear()}-{post.date.getMonth()+1}-{post.date.getDate()}</h1>
             <DeleteBtn id={post._id}/>
             
             </div>
