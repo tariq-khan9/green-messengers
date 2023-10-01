@@ -119,14 +119,14 @@ const Register = () => {
             <form >
               <input
                 value={code}
-                className='bg-gray-50 border h-10 mt-12 border-gray-300 text-gray-900 sm:text-sm rounded-sm block w-full '
+                className='bg-gray-50  h-10 mt-12 focus:border-amber-600 focus:outline-none border-gray-300 text-gray-900 sm:text-sm rounded-sm block w-full '
                 placeholder=' Enter Verification Code...'
                 onChange={(e) => setCode(e.target.value)}
               />
               <button
                 type='submit'
                 onClick={onPressVerify}
-                className='w-full text-white mt-6 h-8 bg-gray-600 hover:bg-blue-700 font-medium rounded-full text-sm px-5  text-center'
+                className='w-full text-white mt-6 h-8 bg-gray-600  font-medium rounded-full text-sm px-5  text-center'
               >
                 Verify Email
               </button>
