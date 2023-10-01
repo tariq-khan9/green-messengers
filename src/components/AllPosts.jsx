@@ -95,7 +95,7 @@ export default function AllPosts() {
              ))
              :
             
-              <div className="text-gray-500 mt-6 font-semibold italic text-xl text-center">No post found!</div>
+              <div className="text-gray-500 mt-6  italic text-xl text-center">No post found!</div>
              
           }
           
