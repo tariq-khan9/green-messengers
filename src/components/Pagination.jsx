@@ -11,7 +11,7 @@ const Pagination = ({totalPosts, postsPerPage, paginate, currentPage, setCurrent
 
     return (
       <div className='pl-18' >
-        <button className='mr-2 disabled:opacity-50' disabled={currentPage===1} onClick={()=> setCurrentPage(currentPage-1)} >Prev</button>
+        <button className='mr-2 text-amber-600 disabled:opacity-50' disabled={currentPage===1} onClick={()=> setCurrentPage(currentPage-1)} >Prev</button>
         {/* map all the page number in the array */}
           {pageNumbers.map((page)=>(
               <button className=' px-2 focus:bg-slate-400' onClick={()=> {
@@ -19,7 +19,7 @@ const Pagination = ({totalPosts, postsPerPage, paginate, currentPage, setCurrent
             }}  key={page}>{page}</button>
           ))}
         
-        <button type='button' className='ml-2  disabled:opacity-50'  disabled={totalPages===currentPage} onClick={()=> setCurrentPage(currentPage+1)} >Next</button>
+        <button type='button' className='ml-2 text-amber-600  disabled:opacity-50'  disabled={totalPages===currentPage} onClick={()=> setCurrentPage(currentPage+1)} >Next</button>
       </div>
     )
   }

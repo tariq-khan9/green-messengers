@@ -18,7 +18,7 @@ export default function AllPosts() {
   
     const fetchPosts= async()=>{
       setLoading(true)
-      const res = await axios.get('https://green-messengers.vercel.app/api/post')
+      const res = await axios.get('http://localhost:3000/api/post')
       if(res.status===401){
         console.log("401 happned")
         return null
@@ -73,30 +73,32 @@ export default function AllPosts() {
     <>
   <div>
       <div className='flex justify-center py-4'>
-          <input onChange={handleSearchChange} name="search" className='w-1/2 sm:2/5 max-w-[450px] drop-shadow-xl border-2 border-gray-200 p-[5px] rounded-md focus:border-teal-500 focus:outline-none' placeholder=' Search by author, title or content of the post.'/>
+          <input onChange={handleSearchChange} name="search" className='w-1/2 sm:2/5 max-w-[450px] drop-shadow-xl border-2 border-gray-200 p-[5px] rounded-md focus:border-amber-600 focus:outline-none' placeholder=' Search by author, title or content of the post.'/>
       </div>
 
       {searchText? 
         <>
-          <div className='p-6 pl-8 grid md:grid-cols-2 xl:grid-cols-3 justify-center bg-opacity-5 '>
+         
             {searchedResults.length?
              searchedResults.map((post)=> (
+              <div className='p-6 pl-8 grid md:grid-cols-2 xl:grid-cols-3 justify-center bg-opacity-5 '>
              <div key={post.id} className='w-[380px] mb-4  bg-stone-400  justify-center p-4 m-2 border border-gray-400 rounded-lg bg-opacity-30 '>
                 <h1 className='mb-6 text-xl flex justify-center '>{post.title}</h1>
                 <p className='text-justify'>{post.content.substring(0,250)}...</p>
-                <button   className='text-green-700'> <Link href={`/posts/${post._id}`}>Read More</Link></button>
+                <button   className='text-amber-700 hover:text-amber-600'> <Link href={`/posts/${post._id}`}>Read More</Link></button>
                 
-                   <h1 className='mt-6'><span className="text-green-800">Author:</span> {post.authorEmail}</h1>
-                  <h1 >Date: {post.date.substring(0,10)}</h1>
+                   <h1 className='mt-6'><span className='text-amber-700'>Author:</span> {post.authorEmail}</h1>
+                  <h1 className='text-amber-700' >Date: {post.date.substring(0,10)}</h1>
                 
              </div>
+             </div> 
              ))
              :
             
-              <div className="text-gray-600 italic text-xl text-center">No post found!</div>
+              <div className="text-amber-600 mt-6 font-semibold italic text-xl text-center">No post found!</div>
              
           }
-          </div> 
+          
         </>
         :
         <div>
@@ -106,10 +108,10 @@ export default function AllPosts() {
                     <h1 className='mb-6 text-xl flex justify-center '>{post.title}</h1>
                     
                     <p className='text-justify '>{post.content.substring(0,250)}...</p>
-                    <button   className='text-green-700 font-semibold hover:text-green-600 '> <Link href={`/posts/${post._id}`}>Read More</Link></button>
+                    <button   className='text-amber-700 font-semibold hover:text-amber-600'> <Link href={`/posts/${post._id}`}>Read More</Link></button>
                     
-                    <h3 className='mt-6 text-gray-600'><span className="text-green-800">Author:</span> {post.authorEmail}</h3>
-                     <h3 className="text-gray-600" ><span className="text-green-800">Date: </span>{post.date.substring(0,10)}</h3>
+                    <h3 className='mt-6 text-gray-600'><span className='text-amber-700'>Author:</span> {post.authorEmail}</h3>
+                     <h3 className="text-gray-600" ><span className='text-amber-700'>Date: </span>{post.date.substring(0,10)}</h3>
                 </div>
                 ) )}
               </div> 

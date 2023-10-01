@@ -22,7 +22,7 @@ const page = async ({params}) => {
   return (
     <div className='w-full h-screen mt-8'>
         <div className=''>
-          <h3 className='text-xl text-teal-600 text-center'>My Posts Log</h3>
+          <h3 className='text-xl text-amber-600 font-bold text-center'>All My Posts</h3>
            <MyPosts posts={posts}/>
         </div>
     </div>

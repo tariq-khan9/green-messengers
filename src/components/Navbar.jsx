@@ -25,13 +25,13 @@ export const Navbar =  () => {
           <Link href='/' className=''><img className='rounded-full h-12 mt-2'  src="./../img/leaf-logo.png" alt="ttariq" /></Link> 
         </div>
         <div className='w-[370px] mt-1   flex items-center '>
-           {user? <div class="grid grid-cols-2 rounded-full border-2 border-gray-400 divide-x-4 divide-gray-400">
-                        <button className='m-1 mx-4 text-gray-500  hover:text-black'><Link href='/posts/add-post'><h2>Add Post</h2></Link></button>
-                        <button className=' text-gray-500  hover:text-black' >
+           {user? <div class="grid grid-cols-2 rounded-full border-2 border-amber-600 divide-x-4 divide-amber-600">
+                        <button className='m-1 mx-4 text-amber-600  hover:text-amber-500'><Link href='/posts/add-post'><h2>Add Post</h2></Link></button>
+                        <button className=' text-amber-600  hover:text-amber-500' >
                           <Link href={`/${loggedEmail}`}><h2>My Posts</h2></Link>
                         </button>
                         
-                      </div> : <h2 className='text-gray-500 ml-7 text-lg '>Login to add Post!</h2>}
+                      </div> : <h2 className='text-amber-600 ml-7 text-lg '>Login to add Post!</h2>}
         </div>
 
 
