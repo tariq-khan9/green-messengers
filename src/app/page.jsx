@@ -12,7 +12,7 @@ export default function Home() {
             <h2 className=' text-base text-opacity-50 sm:text-lg sm:px-0 px-8 font-normal text-amber-700 w-[520px] lg:w-[680px] text-center'>Green Messengers is an online platform to dicover, create and share eco-friendly ideas to save our beautiful planet</h2>
           </div>
       </div>
-    {/* <AllPosts/> */}
+    <AllPosts/>
     </>
   )
 }
