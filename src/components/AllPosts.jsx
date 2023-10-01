@@ -18,7 +18,7 @@ export default function AllPosts() {
   
     const fetchPosts= async()=>{
       setLoading(true)
-      const res = await axios.get('http://localhost:3000/api/post')
+      const res = await axios.get('https://green-messengers.vercel.app/api/post')
       if(res.status===401){
         console.log("401 happned")
         return null
