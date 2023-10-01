@@ -78,27 +78,23 @@ export default function AllPosts() {
 
       {searchText? 
         <>
-         
-            {searchedResults.length?
+          <div  className='p-6 pl-8 grid md:grid-cols-2 xl:grid-cols-3 justify-center bg-opacity-5 '>
+           {searchedResults.length?
              searchedResults.map((post)=> (
-              <div key={post.id} className='p-6 pl-8 grid md:grid-cols-2 xl:grid-cols-3 justify-center bg-opacity-5 '>
-             <div  className='w-[380px] mb-4  bg-stone-400  justify-center p-4 m-2 border border-gray-400 rounded-lg bg-opacity-30 '>
+             <div key={post.id}  className='w-[380px] mb-4  bg-stone-400  justify-center p-4 m-2 border border-gray-400 rounded-lg bg-opacity-30 '>
                 <h1 className='mb-6 text-xl flex justify-center '>{post.title}</h1>
                 <p className='text-justify'>{post.content.substring(0,250)}...</p>
                 <button   className='text-amber-700 hover:text-amber-600'> <Link href={`/posts/${post._id}`}>Read More</Link></button>
                 
                    <h1 className='mt-6'><span className='text-amber-700'>Author:</span> {post.authorEmail}</h1>
-                  <h1 className='text-amber-700' >Date: {post.date.substring(0,10)}</h1>
-                
-             </div>
-             </div> 
-             ))
-             :
-            
+                  <h1 className='text-amber-700' >Date: {post.date.substring(0,10)}</h1>             
+             </div>          
+             ))            
+             :           
               <div className="text-gray-500 mt-6  italic text-xl text-center">No post found!</div>
              
           }
-          
+         </div>
         </>
         :
         <div>
