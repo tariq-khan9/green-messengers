@@ -4,7 +4,6 @@
 import React,{useState, useEffect} from 'react'
 import 'react-toastify/dist/ReactToastify.css'
 import {ToastContainer, toast} from 'react-toastify'
-import { BASE_URL } from '@/lib/constant'
 import { useRouter } from 'next/navigation'
 import {  useClerk } from '@clerk/nextjs';
 
@@ -12,7 +11,6 @@ export default function AddPost() {
   const { user } = useClerk();
   const loggedEmail = user? user.emailAddresses[0].emailAddress : '';
   const router = useRouter()
-  const baseUrl = BASE_URL
   const [authEmail, setAuthEmail] = useState(loggedEmail) 
   const [postData, setPostData] = useState({
     title:"",
@@ -40,7 +38,7 @@ export default function AddPost() {
         if(title  && content )
           {
             try{   
-                  const res = await fetch('https://green-messengers.vercel.app/api/post', {
+                  const res = await fetch('https://green-messengers.vercel.app'+'/api/post', {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',
